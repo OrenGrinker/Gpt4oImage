@@ -1,12 +1,12 @@
 import base64
 
-def get_image_description(client, uploaded_file, prompt):
+def get_image_description(client, uploaded_file, prompt, model_choice):
     # Encode the uploaded image in base64
     encoded_image = base64.b64encode(uploaded_file.getvalue()).decode('utf-8')
 
-    # Create the GPT-4o API request
+    # Create the GPT-4o or GPT-4o-mini API request
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model=model_choice,
         messages=[
             {
                 "role": "user",

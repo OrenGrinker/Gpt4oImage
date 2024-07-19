@@ -5,8 +5,8 @@ import base64
 from utils import get_image_description
 
 # Streamlit app layout
-st.title("Image Description using GPT-4o")
-st.write("Upload an image and get a description using GPT-4o.")
+st.title("Image Description using GPT-4o and GPT-4o Mini")
+st.write("Upload an image and get a description using GPT-4o or GPT-4o Mini.")
 
 # Textbox for updating OpenAI API key
 api_key = st.text_input("Enter your OpenAI API key", type="password")
@@ -16,6 +16,9 @@ if not api_key:
 if api_key:
     # Initialize the OpenAI client
     client = OpenAI(api_key=api_key)
+
+    # Dropdown for selecting the model
+    model_choice = st.selectbox("Select the model", ["gpt-4o", "gpt-4o-mini"])
 
     # Textbox for updating the prompt
     prompt = st.text_input("Enter the prompt for image description", "What’s in this image?")
@@ -31,7 +34,7 @@ if api_key:
             st.write("Classifying...")
 
             # Get the image description
-            description = get_image_description(client, uploaded_file, prompt)
+            description = get_image_description(client, uploaded_file, prompt, model_choice)
             st.write(description)
         except Exception as e:
             st.error(f"Error: {e}")

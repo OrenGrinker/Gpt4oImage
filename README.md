@@ -1,6 +1,6 @@
 # Image Description using GPT-4o
 
-This project is a Streamlit web application that uses OpenAI's GPT-4o to generate descriptions for uploaded images.
+This project is a Streamlit web application that uses OpenAI's GPT-4o and GPT-4o mini to generate descriptions for uploaded images.
 
 ## Features
 
@@ -31,6 +31,7 @@ This project is a Streamlit web application that uses OpenAI's GPT-4o to generat
 ## Usage
 
 - Enter your OpenAI API key.
+- Choose the model (GPT-4o / GPT-4o mini)
 - Enter a prompt for image description.
 - Upload an image and get the description.
 
